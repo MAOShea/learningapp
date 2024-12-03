@@ -5,5 +5,12 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+  <Target Name="pipelinePreDeployCopyAllFilesToOneFolder">
+    <ItemGroup>
+      <_PublishedFile>$(OutDir)\**</_PublishedFile>
+    </ItemGroup>
+    <MakeDir Directories="$(PackageTempDir)" />
+    <Copy SourceFiles="@(_PublishedFile)" DestinationFolder="$(PackageTempDir)" />
+  </Target>
 
 </Project>
