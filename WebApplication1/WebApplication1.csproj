@@ -7,7 +7,7 @@
   </PropertyGroup>
   <Target Name="pipelinePreDeployCopyAllFilesToOneFolder">
     <ItemGroup>
-      <_PublishedFile>$(OutDir)\**</_PublishedFile>
+      <_PublishedFile Include="$(OutDir)\**\*" />
     </ItemGroup>
     <MakeDir Directories="$(PackageTempDir)" />
     <Copy SourceFiles="@(_PublishedFile)" DestinationFolder="$(PackageTempDir)" />
